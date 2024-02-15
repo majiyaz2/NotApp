@@ -1,0 +1,19 @@
+{
+  "name": "notapp",
+  "version": "1.0.0",
+  "description": "A Note App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majiyaz2/NotApp.git"
+  },
+  "author": "Andile Mhlongo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majiyaz2/NotApp/issues"
+  },
+  "homepage": "https://github.com/majiyaz2/NotApp#readme"
+}
