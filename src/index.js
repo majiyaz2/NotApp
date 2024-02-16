@@ -3,16 +3,36 @@ const {ApolloServer, gql} = require('apollo-server-express');
 
 const port = process.env.PORT || 4000;
 
+let notes = [
+    {id: '1', content: 'This is a note', author: 'Adam Scott'},
+    {id: '2', content: 'This is another note', author: 'Harlow Everly'},
+    {id: '3', content: 'Another One', author: 'DJ Khaled'}
+]
+
 const typeDefs = gql`
-type Query{
-    hello: String
-}
+    type Note{
+        id: ID!
+        content: String!
+        author: String!
+    }
+
+    type Query{
+        hello: String
+        
+        
+    }
+
+   
+
 `;
 
 const resolvers = {
     Query: {
-        hello: () => 'Hello world!'
-    }
+        hello: () => 'Hello world!',
+        notes: () => notes,
+        
+    },
+    
 }
 
 server = new ApolloServer({
