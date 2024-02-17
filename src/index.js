@@ -1,66 +1,29 @@
 require('dotenv').config();
-
+// Loading the dependencies
 const express = require('express');
-const {ApolloServer, gql} = require('apollo-server-express');
+const {ApolloServer} = require('apollo-server-express');
 
+// Loading local modules
 const db = require('./db')
 const models = require('./models')
+const typeDefs = require('./schema')
+const resolvers = require('./resolvers')
 
+// Setting the port and host ip
 const port = process.env.PORT || 4000;
 const DB_HOST = process.env.DB_HOST;
 
 
-let notes = [
-    {id: '1', content: 'This is a note', author: 'Adam Scott'},
-    {id: '2', content: 'This is another note', author: 'Harlow Everly'},
-    {id: '3', content: 'Another One', author: 'DJ Khaled'}
-]
 
-const typeDefs = gql`
-    type Note{
-        id: ID!
-        content: String!
-        author: String!
-    }
-
-    type Query{
-        hello: String
-        notes: [Note!]!
-        note(id: ID!): Note!
-    }
-
-    type Mutation {
-        newNote(content: String!): Note!
-    }
-
-`;
-
-const resolvers = {
-    Query: {
-        hello: () => 'Hello world!',
-        notes: async () => {
-            return await models.Note.find()
-        },
-        note: async (parent, args) => {
-            return await models.Note.findById(args.id);
-        }
-    },
-    Mutation: {
-        newNote: async (parent, args) => {
-
-            return await models.Note.create({
-                content: args.content,
-                author: 'Adam Scott'
-            });
-        }
-    }
-};
 
 const app = express();
 db.connect(DB_HOST);
 server = new ApolloServer({
     typeDefs,
     resolvers,
+    context: () => {
+        return {models}
+    }
 });
 async function startServer() {
  
