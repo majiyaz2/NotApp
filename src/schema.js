@@ -17,7 +17,7 @@ module.exports = gql`
         email: String!
         avatar: String!
         notes: [Note!]!
-        favourites: [Note!]!
+        favorites: [Note!]!
     }
 
     type Query{
