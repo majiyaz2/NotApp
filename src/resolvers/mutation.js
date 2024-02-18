@@ -1,3 +1,12 @@
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const gravatar = require("../util/gravatar")
+const {
+    AuthenticationError,
+    ForbiddenError
+} = require("apollo-server-express")
+require("dotenv").config()
+
 module.exports = {
     newNote: async (parent, args, {models}) => {
 
@@ -28,6 +37,26 @@ module.exports = {
                 new: true
             }
         )
+    },
+    signUp: async (parent, {username, email, password}, {models}) => {
+        email = email.trim().toLowerCase();
+        const hashed = await bcrypt.hash(password, 10);
+        const avatar = gravatar(email);
+
+        try {
+            const user = models.User.create({
+                username,
+                email,
+                avatar,
+                password: hashed
+
+            });
+
+            return jwt.sign({id: user._id}, process.env.JWT_SECRET);
+        }catch(err){
+            console.log(err);
+            throw new Error('Error creating account')
+        }
     }
 
 }
