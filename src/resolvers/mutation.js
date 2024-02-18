@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const gravatar = require("../util/gravatar")
 const {
@@ -15,7 +15,7 @@ module.exports = {
         }
         return await models.Note.create({
             content: args.content,
-            author: mongoose.Types.ObjectId(user.id)
+            author: new mongoose.Types.ObjectId(user.id)
         });
     },
     deleteNote: async (parent, {id}, {models}) => {
