@@ -36,7 +36,7 @@ module.exports = {
             return false;
         }
     },
-    updateNote: async (parent, {content, id}, {models}) => {
+    updateNote: async (parent, {content, id}, {models, user}) => {
         if(!user){
             throw new AuthenticationError('You must be signed in to create a note')
         }
