@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const mongoose = require('mongoose')
 const jwt = require("jsonwebtoken");
 const gravatar = require("../util/gravatar")
 const {
@@ -8,11 +9,13 @@ const {
 require("dotenv").config()
 
 module.exports = {
-    newNote: async (parent, args, {models}) => {
-
+    newNote: async (parent, args, {models, user}) => {
+        if(!user){
+            throw new AuthenticationError('You must be signed in to create a note')
+        }
         return await models.Note.create({
             content: args.content,
-            author: 'Adam Scott'
+            author: mongoose.Types.ObjectId(user.id)
         });
     },
     deleteNote: async (parent, {id}, {models}) => {
