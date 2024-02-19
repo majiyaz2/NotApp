@@ -1,5 +1,7 @@
 require('dotenv').config();
 const jwt = require("jsonwebtoken")
+const helmet = require('helmet')
+const cors = require('cors')
 // Loading the dependencies
 const express = require('express');
 const {ApolloServer} = require('apollo-server-express');
@@ -26,6 +28,8 @@ const getUser = token => {
 }
 
 const app = express();
+app.use(helmet())
+app.use(cors())
 db.connect(DB_HOST);
 server = new ApolloServer({
     typeDefs,
