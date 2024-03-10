@@ -10,12 +10,18 @@ require("dotenv").config()
 
 module.exports = {
     newNote: async (parent, args, {models, user}) => {
-        if(!user){
-            throw new AuthenticationError('You must be signed in to create a note')
+        if (!user) {
+            throw new AuthenticationError('You must be signed in to create a note');
         }
+    
+        if (!mongoose.Types.ObjectId.isValid(user.id)) {
+            throw new Error('Invalid user ID');
+        }
+    
         return await models.Note.create({
             content: args.content,
-            author: new mongoose.Types.ObjectId(user.id)
+            author: user.id,
+            favoriteCount: 0
         });
     },
     deleteNote: async (parent, {id}, {models, user}) => {
