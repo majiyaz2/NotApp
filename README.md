@@ -50,14 +50,16 @@ The NoteAPI API will be built using the following technologies:
 
 6. To explore the API, set the GraphQL endpoint in the Playground to http://localhost:4000/api.
 
-Contributing
+7. The API can also be explored using the hosted url link https://notapp.onrender.com/api
+
+**Contributing**
 
 Contributions to the Notedly project are welcome! Please follow the [contributing guidelines](CONTRIBUTING.md) to get started.
 
-License
+**License**
 
 This project is licensed under the [MIT License](LICENSE).
 
-Contact
+**Contact**
 
 For questions or feedback, please contact [majiyaz2@gmail.com](mailto:majiyaz2@gmail.com).
