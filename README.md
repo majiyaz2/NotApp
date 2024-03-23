@@ -1,8 +1,8 @@
-NotedAPI: A Social Note Taking API
-
+**NotedAPI: A Social Note Taking API
+**
 Notedly is a social note-taking API that allows users to create, read, update, and delete their own notes. Users can also view a feed of notes created by other users, read individual notes from others, and "favorite" notes they like. The application supports plain text and Markdown formatting for notes.
 
-Features
+**Features**
 
 - User authentication (create account, login, logout)
 - Create, read, update, and delete notes
@@ -12,9 +12,9 @@ Features
 - Retrieve user profile information (self and others)
 - Retrieve a list of favorited notes
 
-Technologies
+**Technologies**
 
-The Notedly API will be built using the following technologies:
+The NoteAPI API will be built using the following technologies:
 
 - GraphQL: An open-source query language and specification for building APIs. GraphQL provides a flexible and efficient way to request and retrieve data from the server.
 - Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine for running JavaScript on the server.
@@ -22,10 +22,10 @@ The Notedly API will be built using the following technologies:
 - MongoDB: A NoSQL document database used for storing and retrieving data.
 - Mongoose: An Object Data Modeling (ODM) library that provides a higher-level abstraction for working with MongoDB.
 
-Getting Started
+**Getting Started**
 
 1. Create a .env file in the project root and add the following environment variables:
-   - DB_HOST: The MongoDB connection URL (e.g., mongodb://localhost:27017/notedly)
+   - DB_HOST: The MongoDB connection URL (e.g., mongodb://localhost:27017/noteapi)
    - JWT_SECRET: A random string to be used for JSON Web Token (JWT) encryption
 
 2. Install the project dependencies by running:
