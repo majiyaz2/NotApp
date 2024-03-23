@@ -1,5 +1,4 @@
-**NotedAPI: A Social Note Taking API
-**
+**NotedAPI: A Social Note Taking API**
 Notedly is a social note-taking API that allows users to create, read, update, and delete their own notes. Users can also view a feed of notes created by other users, read individual notes from others, and "favorite" notes they like. The application supports plain text and Markdown formatting for notes.
 
 **Features**
