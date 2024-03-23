@@ -1,8 +1,6 @@
-Here's the formatted README content without any markdown formatting:
+NotedAPI: A Social Note Taking API
 
-Notedly: A Social Note Taking App
-
-Notedly is a social note-taking application that allows users to create, read, update, and delete their own notes. Users can also view a feed of notes created by other users, read individual notes from others, and "favorite" notes they like. The application supports plain text and Markdown formatting for notes.
+Notedly is a social note-taking API that allows users to create, read, update, and delete their own notes. Users can also view a feed of notes created by other users, read individual notes from others, and "favorite" notes they like. The application supports plain text and Markdown formatting for notes.
 
 Features
 
